@@ -1,0 +1,75 @@
+//game constructor
+
+//snake constructor
+
+//apple constructor
+  //math.random
+
+//snake movement
+
+//keyboard event listeners
+  //37, 38, 39, 40
+
+//collision detection
+
+//game stats
+
+
+SEPARATE VISUALS FROM LOGIC
+
+
+1.
+
+- grid (12*12/24*24)?
+  two-dimensional array
+- snake
+  head and tail
+    -> array
+  direction
+  turn (see rover)
+  let it move forward
+  set boundaries
+
+
+2.
+
+-----------------------
+
+tail = body[body.length-1]
+head = body[0];
+
+//to change x (without the head):
+body = ["y,x" , "y,x" , "y,x" , "y,x"]
+  for (var i = 1; i < body.length; i++) {
+    body[i][0]--;
+  }
+
+//to change y (without the head):
+body = ["x,y" , "x,y" , "x,y" , "x,y"]
+  for (var i = 1; i < body.length; i++) {
+    body[i][1]--;
+  }
+
+function () addNewBodyPart {
+  var newBodyPart = this.head;
+  moveHead();
+
+  body.splice(1, 0, newBodyPart);
+
+  moveBody();
+}
+
+//if snake turns head left, and is facing south instead of north, not whole body should face south
+//-> so every bodypart should move to position bodypart in front of it used to be -> pop out last element and add on top?
+//if: eat -> no pop (only unshift)
+
+this.x = this.body[0][1];
+this.y = this.body[0][0];
+
+
+var tail = this.body.pop();
+tail[1] = this.x;
+tail[0] = this.y;
+
+this.body.unshift(tail);
+
